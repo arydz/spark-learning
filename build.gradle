@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+group 'org.example.arydz'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile 'org.apache.spark:spark-sql_2.12:3.1.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+jar {
+    archiveBaseName = 'spark-basic'
+    archiveVersion = '0.1'
+}
+
+test {
+    useJUnitPlatform()
+}
