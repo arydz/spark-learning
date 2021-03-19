@@ -21,7 +21,8 @@ public class GenerateRandomLongValues implements SparkTask {
         new Random().longs(-500, 4900).limit(3500).boxed().collect(Collectors.toList());
 
     try (JavaSparkContext sparkContext = new JavaSparkContext(sparkSession.sparkContext())) {
-      JavaRDD<Long> rdd = sparkContext.parallelize(list);
+      // 8 CPUs, suggested 2-4 partitions for each CPU in cluster
+      JavaRDD<Long> rdd = sparkContext.parallelize(list, 16);
       rdd.foreach((VoidFunction<Long>) value -> System.out.println("Java RDD : " + value));
       Long reduce = rdd.reduce((v1, v2) -> v1 + v2);
 
@@ -31,7 +32,7 @@ public class GenerateRandomLongValues implements SparkTask {
       sparkContext.stop();
     } catch (InterruptedException e) {
       System.out.println(e.getMessage());
-    } finally{
+    } finally {
       log.info("Task completed: " + GenerateRandomLongValues.class.getSimpleName());
     }
   }

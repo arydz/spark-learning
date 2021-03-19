@@ -8,7 +8,7 @@ public class Main {
     SparkSession sparkSession =
         SparkSession.builder().appName("Spark-Learning").master("local[*]").getOrCreate();
 
-    SparkTask sparkTask = new GenerateRandomLongValues();
+    SparkTask sparkTask = new ReadTextFile();
     sparkTask.execute(sparkSession);
   }
 }
