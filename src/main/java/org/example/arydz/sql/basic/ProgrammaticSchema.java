@@ -1,4 +1,4 @@
-package org.example.arydz.sql;
+package org.example.arydz.sql.basic;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.function.MapFunction;

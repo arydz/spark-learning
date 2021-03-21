@@ -2,6 +2,7 @@ package org.example.arydz.sql;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
+import org.example.arydz.sql.loadsave.SavingInPersistentTables;
 
 public class Main {
 
@@ -15,7 +16,13 @@ public class Main {
 //        new BasicDataFrame().execute(spark);
 //        new DatasetCreation().execute(spark);
 //        new InferSchema().execute(spark);
-        new ProgrammaticSchema().execute(spark);
+//        new ProgrammaticSchema().execute(spark);
+
+//        new LoadAndSaveParquetSimple().execute(spark);
+//        new LoadAndSaveJsonSimple().execute(spark);
+//        new LoadAndSaveCSVSimple().execute(spark);
+//        new LoadParaquetDirectlySimple().execute(spark);
+        new SavingInPersistentTables().execute(spark);
 
     }
 }

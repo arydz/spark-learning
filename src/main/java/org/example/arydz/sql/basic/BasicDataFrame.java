@@ -1,4 +1,4 @@
-package org.example.arydz.sql;
+package org.example.arydz.sql.basic;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;

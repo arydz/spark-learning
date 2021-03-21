@@ -1,9 +1,10 @@
-package org.example.arydz.sql;
+package org.example.arydz.sql.basic;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.sql.*;
 import org.example.arydz.SparkTask;
+import org.example.arydz.sql.Bar;
 
 // This method uses reflection to infer the schema of an RDD
 // that contains specific types of objects.

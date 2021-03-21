@@ -1,4 +1,4 @@
-package org.example.arydz.sql;
+package org.example.arydz.sql.basic;
 
 import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.sql.Dataset;
@@ -6,6 +6,7 @@ import org.apache.spark.sql.Encoder;
 import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.SparkSession;
 import org.example.arydz.SparkTask;
+import org.example.arydz.sql.Bar;
 
 import java.util.Arrays;
 import java.util.Collections;
