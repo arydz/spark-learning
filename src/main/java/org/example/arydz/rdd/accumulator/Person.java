@@ -1,4 +1,4 @@
-package org.example.arydz.accumulator;
+package org.example.arydz.rdd.accumulator;
 
 import java.io.Serializable;
 

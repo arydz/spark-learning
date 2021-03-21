@@ -15,7 +15,11 @@
 # How to submit spark job
 
 ```
-spark-submit --class org.example.arydz.Main /home/arydz/workspace/learning/Spark-Learning/build/libs/spark-basic-0.1.jar
+spark-submit --class org.example.arydz.rdd.Main /home/arydz/workspace/learning/Spark-Learning/build/libs/spark-basic-0.1.jar
+```
+or
+```
+spark-submit --class org.example.arydz.sql.Main /home/arydz/workspace/learning/Spark-Learning/build/libs/spark-basic-0.1.jar
 ```
 
 # MongoDB

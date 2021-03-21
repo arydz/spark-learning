@@ -1,8 +1,9 @@
-package org.example.arydz;
+package org.example.arydz.rdd;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
+import org.example.arydz.SparkTask;
 
 import java.util.List;
 import java.util.Random;
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 public class CorruptedCounter implements SparkTask {
 
   @Override
-  public void execute(SparkSession sparkSession) {
+  public void execute(SparkSession spark) {
 
 
     // The variables within the closure sent to each executor are now copies and thus,
@@ -33,7 +34,7 @@ public class CorruptedCounter implements SparkTask {
     int counter[] = new int[] {0};
     List<Integer> list = new Random().ints(0, 50).limit(10).boxed().collect(Collectors.toList());
 
-    try (JavaSparkContext sc = new JavaSparkContext(sparkSession.sparkContext())) {
+    try (JavaSparkContext sc = new JavaSparkContext(spark.sparkContext())) {
       JavaRDD<Integer> rdd = sc.parallelize(list, 1);
       rdd.foreach(x -> counter[0] += x);
 

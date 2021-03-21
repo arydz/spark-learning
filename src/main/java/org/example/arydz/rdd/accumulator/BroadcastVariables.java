@@ -1,17 +1,18 @@
-package org.example.arydz;
+package org.example.arydz.rdd.accumulator;
 
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
 import org.apache.spark.sql.SparkSession;
+import org.example.arydz.SparkTask;
 
 import java.util.Arrays;
 
 public class BroadcastVariables implements SparkTask {
 
     @Override
-    public void execute(SparkSession sparkSession) {
+    public void execute(SparkSession spark) {
 
-        try (JavaSparkContext sc = new JavaSparkContext(sparkSession.sparkContext())) {
+        try (JavaSparkContext sc = new JavaSparkContext(spark.sparkContext())) {
 
             Broadcast<int[]> broadcastVar = sc.broadcast(new int[]{1, 2, 3});
             // After the broadcast variable is created,
