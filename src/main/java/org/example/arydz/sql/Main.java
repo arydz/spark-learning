@@ -2,7 +2,7 @@ package org.example.arydz.sql;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
-import org.example.arydz.sql.loadsave.SavingInPersistentTables;
+import org.example.arydz.sql.fileoptions.ModificationTimePath;
 
 public class Main {
 
@@ -22,7 +22,11 @@ public class Main {
 //        new LoadAndSaveJsonSimple().execute(spark);
 //        new LoadAndSaveCSVSimple().execute(spark);
 //        new LoadParaquetDirectlySimple().execute(spark);
-        new SavingInPersistentTables().execute(spark);
+//        new SavingInPersistentTables().execute(spark);
+//        new IgnoreCorruptFiles().execute(spark);
+//        new PathGlobalFilter().execute(spark);
+//        new RecursiveFileLookup().execute(spark);
+        new ModificationTimePath().execute(spark);
 
     }
 }

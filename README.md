@@ -25,6 +25,8 @@ spark-submit --class org.example.arydz.sql.Main /home/arydz/workspace/learning/S
 # MongoDB
 
 <span style="color: #9F6000; background-color: #FEEFB3;">**Fill in later**</span><br>
+https://github.com/vaquarkhan/springboot-microservice-apache-spark
+
 https://www.bmc.com/blogs/mongodb-docker-container/
 https://stackoverflow.com/questions/60522471/docker-compose-mongodb-docker-entrypoint-initdb-d-is-not-working
 https://medium.com/faun/managing-mongodb-on-docker-with-docker-compose-26bf8a0bbae3
