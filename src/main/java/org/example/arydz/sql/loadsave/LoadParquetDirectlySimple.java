@@ -5,7 +5,7 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.example.arydz.SparkTask;
 
-public class LoadParaquetDirectlySimple implements SparkTask {
+public class LoadParquetDirectlySimple implements SparkTask {
 
     @Override
     public void execute(SparkSession spark) {

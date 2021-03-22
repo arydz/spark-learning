@@ -21,6 +21,12 @@ or
 ```
 spark-submit --class org.example.arydz.sql.Main /home/arydz/workspace/learning/Spark-Learning/build/libs/spark-basic-0.1.jar
 ```
+or
+```
+spark-submit --class org.example.arydz.sql.hive.Main /home/arydz/workspace/learning/Spark-Learning/build/libs/spark-basic-0.1.jar
+
+```
+
 
 # MongoDB
 
