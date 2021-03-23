@@ -1,15 +1,54 @@
 version: "3.8"
 
 services:
-  mongo:
-    container_name: container-mongodb
-    image: mongo:latest
+#  mongo:
+#    container_name: container-mongodb
+#    image: mongo:latest
+#    restart: always
+#    ports:
+#      - 27017:27017
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: adrian
+#      MONGO_INITDB_ROOT_PASSWORD: adrian
+#      MONGO_INITDB_DATABASE: test_db
+#    volumes:
+#      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  # postgres database
+  postgres:
+    image: postgres
+#    When connecting by pgadmin4 use container name as host
+    container_name: postgres
     restart: always
-    ports:
-      - 27017:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: adrian
-      MONGO_INITDB_ROOT_PASSWORD: adrian
-      MONGO_INITDB_DATABASE: test_db
+      - POSTGRES_DB=spark_learning
+      - POSTGRES_USER=spark
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST_AUTH_METHOD=trust # Disable for prod
     volumes:
-      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./db/init:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data/
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+
+  # pgadmin runs at localhost:5050
+  # To add the above postgres server to pgadmin, use hostname as defined by docker: 'postgres'
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin
+      - PGADMIN_DEFAULT_PASSWORD=password
+      - PGADMIN_LISTEN_PORT=5454
+    ports:
+      - 5454:5454/tcp
+#      - "5050:5050"
+    volumes:
+      - pgadmindata:/var/lib/pgadmin
+
+volumes:
+  pgdata:
+  pgadmindata:

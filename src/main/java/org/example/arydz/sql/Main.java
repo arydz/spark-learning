@@ -2,6 +2,7 @@ package org.example.arydz.sql;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
+import org.example.arydz.sql.jdbc.JdbcInsertStock;
 
 public class Main {
 
@@ -32,5 +33,7 @@ public class Main {
 //        new ParquetSchemaMerging().execute(spark);
 //        new JsonDataset().execute(spark);
 
+//        new JdbcExample().execute(spark);
+        new JdbcInsertStock().execute(spark);
     }
 }
